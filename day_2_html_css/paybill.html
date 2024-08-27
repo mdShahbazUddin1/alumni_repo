@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotating Icons</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Container for the rotating icons */
+        .icon-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background-color: #000;
+            /* Black background */
+        }
+
+        /* Circle wrapper for alignment */
+        .circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: rotate 10s linear infinite;
+        }
+
+        /* Styling for icons */
+        .circle i {
+            position: absolute;
+            color: #fff;
+            font-size: 24px;
+            transition: color 0.5s, transform 0.5s;
+        }
+
+        /* Animation for rotating */
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Positioning icons in a circle */
+        .circle i {
+            transform-origin: center center;
+        }
+
+        /* Adjusting the position of each icon */
+        .circle i:nth-child(1) {
+            transform: rotate(0deg) translateY(-120px);
+        }
+
+        .circle i:nth-child(2) {
+            transform: rotate(45deg) translateY(-120px);
+        }
+
+        .circle i:nth-child(3) {
+            transform: rotate(90deg) translateY(-120px);
+        }
+
+        .circle i:nth-child(4) {
+            transform: rotate(135deg) translateY(-120px);
+        }
+
+        .circle i:nth-child(5) {
+            transform: rotate(180deg) translateY(-120px);
+        }
+
+        .circle i:nth-child(6) {
+            transform: rotate(225deg) translateY(-120px);
+        }
+
+        .circle i:nth-child(7) {
+            transform: rotate(270deg) translateY(-120px);
+        }
+
+        .circle i:nth-child(8) {
+            transform: rotate(315deg) translateY(-120px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="icon-container">
+        <div class="circle">
+            <i class="fas fa-home"></i>
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-youtube"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fas fa-laptop"></i>
+            <i class="fas fa-envelope"></i>
+            <i class="fas fa-calendar"></i>
+            <i class="fas fa-book"></i>
+        </div>
+    </div>
+</body>
+
+</html>

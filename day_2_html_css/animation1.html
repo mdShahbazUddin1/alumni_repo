@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoom Box Animation</title>
+    <style>
+        /* Basic styling for the body */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            /* Black background for contrast */
+            overflow: hidden;
+            /* Prevent scrollbars during animation */
+        }
+
+        /* Styling for the box */
+        .box {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #ff007f, #ff00c1);
+            /* Linear gradient background */
+            position: relative;
+            box-shadow: 0 0 15px 5px rgba(255, 0, 0, 0.6);
+            /* Red shadow for the box */
+            transition: transform 1s ease-in-out;
+            /* Smooth zoom effect */
+        }
+
+        /* Define the zoom animation */
+        @keyframes zoomIn {
+            from {
+                transform: scale(1);
+                /* Start at original size */
+            }
+
+            to {
+                transform: scale(1.5);
+                /* Scale up to 1.5 times the size */
+            }
+        }
+
+        /* Apply the animation to the box */
+        .box {
+            animation: zoomIn 2s forwards;
+            /* Animation duration and persistence */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>

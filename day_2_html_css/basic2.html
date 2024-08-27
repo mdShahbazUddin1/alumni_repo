@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Transition</title>
+    <style>
+        /* Basic styling for the button */
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #3498db;
+            /* Initial background color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 5s, transform 2s;
+            /* Transition effects */
+        }
+
+        /* Hover effect: changes background color */
+        .button:hover {
+            background-color: red;
+            /* Color changes to red on hover */
+        }
+
+        /* Active effect: scales the button when clicked */
+        .button:active {
+            transform: scale(1.2);
+            /* Increases the size */
+        }
+    </style>
+</head>
+
+<body>
+    <button class="button">Click Me</button>
+</body>
+
+</html>
