@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Counter with Dynamic UI Update</title>
+</head>
+
+<body>
+    <div id="counter-value">0</div>
+    <button id="increment-btn">Increment</button>
+    <button id="decrement-btn">Decrement</button>
+
+
+</body>
+
+</html>
+<script>
+
+    function createCounter(initialValue) {
+        let value = initialValue; // Encapsulated counter value
+
+        return {
+            increment: function () {
+                value += 1;
+                return value;
+            },
+            decrement: function () {
+                value -= 1;
+                return value;
+            },
+            getValue: function () {
+                return value;
+            }
+        };
+    }
+    // Create a counter with an initial value of 0
+    const counter = createCounter(0);
+
+    // Get references to the DOM elements
+    const counterValueDiv = document.getElementById('counter-value');
+    const incrementBtn = document.getElementById('increment-btn');
+    const decrementBtn = document.getElementById('decrement-btn');
+
+    // Function to update the UI with the current counter value
+    function updateUI() {
+        counterValueDiv.textContent = counter.getValue();
+    }
+
+    // Add event listeners to the buttons
+    incrementBtn.addEventListener('click', function () {
+        counter.increment();
+        updateUI();
+    });
+
+    decrementBtn.addEventListener('click', function () {
+        counter.decrement();
+        updateUI();
+    });
+
+    // Initialize the UI with the initial counter value
+    updateUI();
+</script>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debounced Movie Search</title>
+    <style>
+        #movie-list {
+            border: 1px solid #ccc;
+            margin-top: 10px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .movie-item {
+            cursor: pointer;
+            padding: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .movie-item:hover {
+            background-color: #f0f0f0;
+        }
+
+        #movie-details {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="search-input" placeholder="Search for a movie...">
+    <div id="movie-list"></div>
+    <div id="movie-details"></div>
+
+    <script>
+        function debounce(func, delay) {
+            let timeout;
+            return function (...args) {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(this, args), delay);
+            };
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('search-input');
+            const movieList = document.getElementById('movie-list');
+            const movieDetails = document.getElementById('movie-details');
+            const API_KEY = '902361d0';  // Replace with your actual API key
+
+            // Function to fetch movies based on search query
+            async function fetchMovies(query) {
+                const response = await fetch(`http://www.omdbapi.com/?s=${query}&apikey=${API_KEY}`);
+                const data = await response.json();
+                return data.Search || [];
+            }
+
+
+            async function fetchMovieDetails(movieID) {
+                const response = await fetch(`http://www.omdbapi.com/?i=${movieID}&apikey=${API_KEY}`);
+                const data = await response.json();
+                return data;
+            }
+
+            // Function to render the movie list
+            function renderMovieList(movies) {
+                movieList.innerHTML = '';
+                movies.forEach(movie => {
+                    const movieItem = document.createElement('div');
+                    movieItem.className = 'movie-item';
+                    movieItem.textContent = movie.Title;
+                    movieItem.addEventListener('click', async () => {
+                        const details = await fetchMovieDetails(movie.imdbID);
+                        renderMovieDetails(details);
+                    });
+                    movieList.appendChild(movieItem);
+                });
+            }
+
+            // Function to render movie details
+            function renderMovieDetails(details) {
+                movieDetails.innerHTML = `
+            <h2>${details.Title}</h2>
+            <p><strong>Year:</strong> ${details.Year}</p>
+            <p><strong>Genre:</strong> ${details.Genre}</p>
+            <p><strong>Plot:</strong> ${details.Plot}</p>
+            <img src="${details.Poster}" alt="Poster">
+        `;
+            }
+
+            // Debounced function to handle search input
+            const handleSearch = debounce(async function () {
+                const query = searchInput.value.trim();
+                if (query) {
+                    const movies = await fetchMovies(query);
+                    renderMovieList(movies);
+                } else {
+                    movieList.innerHTML = '';
+                    movieDetails.innerHTML = '';
+                }
+            }, 300);
+
+            // Event listener for the search input
+            searchInput.addEventListener('input', handleSearch);
+        });
+
+    </script>
+</body>
+
+</html>
