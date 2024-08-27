@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard</title>
+    <link rel="stylesheet" href="styles/doctor.css">
+</head>
+
+<body>
+    <header>
+        <h1>Doctor Dashboard</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="logout.html">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>My Appointments</h2>
+            <table id="doctorAppointmentsTable">
+                <thead>
+                    <tr>
+                        <th>Patient</th>
+                        <th>Slot</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Appointments populated dynamically -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script src="scripts/doctor.js"></script>
+</body>
+
+</html>
