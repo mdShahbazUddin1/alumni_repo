@@ -1,0 +1,82 @@
+1. Selectors and Combinators
+Selectors
+CSS selectors are patterns used to select the elements you want to style. Here are the main types of selectors:
+
+Universal Selector
+
+Syntax: *
+Example: * { color: black; }
+Usage: Applies styles to all elements.
+Type Selector
+
+Syntax: element
+Example: p { font-size: 16px; }
+Usage: Targets all <p> elements.
+Class Selector
+
+Syntax: .classname
+Example: .highlight { background-color: yellow; }
+Usage: Targets elements with a specific class attribute.
+ID Selector
+
+Syntax: #id
+Example: #header { color: blue; }
+Usage: Targets an element with a specific ID attribute.
+Attribute Selector
+
+Syntax: [attribute=value]
+Example: input[type="text"] { border: 1px solid #ccc; }
+Usage: Targets elements with a specific attribute.
+Descendant Selector
+
+Syntax: ancestor descendant
+Example: div p { margin: 0; }
+Usage: Targets <p> elements inside a <div>.
+Child Selector
+
+Syntax: parent > child
+Example: ul > li { list-style-type: none; }
+Usage: Targets direct child elements.
+Adjacent Sibling Selector
+
+Syntax: element + sibling
+Example: h2 + p { margin-top: 0; }
+Usage: Targets the first sibling following an element.
+General Sibling Selector
+
+Syntax: element ~ siblings
+Example: h2 ~ p { color: green; }
+Usage: Targets all siblings following an element.
+Combinators
+Combinators define relationships between selectors:
+
+Descendant Combinator (Space)
+
+Syntax: ancestor descendant
+Example: div p { color: red; }
+Usage: Selects all <p> inside a <div>.
+Child Combinator (>)
+
+Syntax: parent > child
+Example: ul > li { color: blue; }
+Usage: Selects direct <li> children of a <ul>.
+Adjacent Sibling Combinator (+)
+
+Syntax: element + sibling
+Example: h1 + p { margin-top: 10px; }
+Usage: Selects the <p> immediately following an <h1>.
+General Sibling Combinator (~)
+
+Syntax: element ~ siblings
+Example: h1 ~ p { color: orange; }
+Usage: Selects all <p> elements following an <h1>.
+2. Specificity
+CSS specificity determines which styles are applied when multiple rules match the same element. It's calculated based on the types of selectors used.
+
+Specificity Calculation
+Specificity is calculated with four components: inline styles, IDs, classes, and element types.
+
+Inline Styles: Highest specificity.
+IDs: Contribute a value of 0,1,0,0.
+Classes, attributes, and pseudo-classes: Contribute a value of 0,0,1,0.
+Element and pseudo-elements: Contribute a value of 0,0,0,1.
