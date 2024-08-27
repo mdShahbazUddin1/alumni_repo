@@ -1,0 +1,37 @@
+{
+    "players": [
+        {
+            "id": 1,
+            "name": "Player1",
+            "team": "TeamA",
+            "totalRuns": 500,
+            "fours": 50,
+            "sixes": 20,
+            "strikeRate": 120.5,
+            "fiftyPlusRuns": 5,
+            "centuries": 2,
+            "nationality": "CountryA"
+        }
+    ],
+    "teams": [
+        {
+            "teamCode": "TeamA",
+            "teamLogo": "https://example.com/teamAlogo.png"
+        }
+    ],
+    "matches": [
+        {
+            "id": 1,
+            "team1": "TeamA",
+            "team2": "TeamB",
+            "date": "2024-08-27",
+            "firstInningsSummary": "",
+            "secondInningsSummary": "",
+            "currentInnings": 1,
+            "currentSummary": "",
+            "currentFallScore": 0,
+            "currentFallWickets": 0,
+            "currentFallOvers": 0
+        }
+    ]
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Data</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        .top-player {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Player Data</h1>
+    <div id="top-player" class="top-player"></div>
+    <table id="player-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Player</th>
+                <th>Team</th>
+                <th>Total Runs</th>
+                <th>Fours</th>
+                <th>Sixes</th>
+                <th>Strike Rate</th>
+                <th>Fifty Plus Runs</th>
+                <th>Centuries</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <button id="prev-page">Previous</button>
+    <button id="next-page">Next</button>
+    <br>
+    <label for="team-filter">Filter by Team:</label>
+    <select id="team-filter"></select>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
